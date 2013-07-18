@@ -7,6 +7,8 @@ namespace SortOf
 {
     public partial class Form1 : Form
     {
+        public int SortCount;
+
         public Form1()
         {
             //if 
@@ -19,7 +21,7 @@ namespace SortOf
             //}
         }        
 
-        public void button1_Click(object sender, EventArgs e)
+        public void BrowseButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -27,8 +29,8 @@ namespace SortOf
                 string path = folderBrowserDialog1.SelectedPath;
                 if (result == DialogResult.OK)
                 {
-                    textBox1.Clear();
-                    textBox1.Paste(path.ToString());
+                    PathBox.Clear();
+                    PathBox.Paste(path.ToString());
                 }
             }
             catch (Exception E)
@@ -37,7 +39,7 @@ namespace SortOf
             }
         }
 
-        public void createfold(string foldname)
+        public void createfolder(string foldername)
         {
             try
             {
@@ -45,9 +47,9 @@ namespace SortOf
 
                 Directory.SetCurrentDirectory(FilePath);
 
-                Directory.CreateDirectory(Name = foldname);
+                Directory.CreateDirectory(Name = foldername);
 
-                Directory.SetCurrentDirectory(FilePath + "\\" + foldname);
+                Directory.SetCurrentDirectory(FilePath + "\\" + foldername);
             }
             catch (Exception E)
             {
@@ -55,31 +57,50 @@ namespace SortOf
             }
         }
 
+        public void removefolder(string foldername)
+        {
+            try
+            {
+                string FilePath = this.folderBrowserDialog1.SelectedPath;
+
+                Directory.SetCurrentDirectory(FilePath);
+
+                Directory.Delete(foldername);
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+        }
         public void sortByExtention(string extType, string CatFolder)
         {
             string FilePath = this.folderBrowserDialog1.SelectedPath;
 
-            string[] zip = Directory.GetFiles(FilePath, "*." +extType,SearchOption.TopDirectoryOnly);
-            var zipn = zip.Count();
-            for (int i = 0; i <= zipn - 1; i++)
+            string[] Files = Directory.GetFiles(FilePath, "*." +extType,SearchOption.TopDirectoryOnly);
+            int FileCount = Files.Count();
+            if (FileCount != 0)
             {
-                try
+                SortCount += 1;
+                for (int i = 0; i <= FileCount - 1; i++)
                 {
-                    Directory.Move(Path.GetFullPath(zip[i]), CatFolder + "\\" + Path.GetFileName(zip[i]));
-                }
-                catch (Exception)
-                {
-                    string[] name = zip[i].Split('.');
-                    string newName = name[0] + " (" + (i) + ")." +name[1];
-                    Directory.Move(Path.GetFullPath(zip[i]), CatFolder + "\\" + Path.GetFileName(newName));
+                    try
+                    {
+                        Directory.Move(Path.GetFullPath(Files[i]), CatFolder + "\\" + Path.GetFileName(Files[i]));
+                    }
+                    catch (Exception)
+                    {
+                        string[] name = Files[i].Split('.');
+                        string newName = name[0] + " (" + (i) + ")." + name[1];
+                        Directory.Move(Path.GetFullPath(Files[i]), CatFolder + "\\" + Path.GetFileName(newName));
+                    }
                 }
             }
         }
 
-        public void button2_Click(object sender, EventArgs e)
+        public void SortButton_Click(object sender, EventArgs e)
         {
             //ReturnCode
-            if (textBox1.Text == "")
+            if (PathBox.Text == "")
             {
                 return;
             }
@@ -97,9 +118,9 @@ namespace SortOf
             //ArchiveExt.
             if (ArchiveBox.Checked == true)
             {
-                createfold("Archives");
+                createfolder("Archives");
 
-                var arcfolder = Directory.GetCurrentDirectory();
+                string arcfolder = Directory.GetCurrentDirectory();
 
                 sortByExtention("zip", arcfolder);
                 sortByExtention("rar", arcfolder);
@@ -113,13 +134,20 @@ namespace SortOf
                 sortByExtention("pk4", arcfolder);
                 sortByExtention("wad", arcfolder);
 
+                if (SortCount == 0)
+                {
+                    removefolder(arcfolder);
+                }
+                else
+                    SortCount = 0;
+
             }
             
             progressBar1.PerformStep();
             //DocumentExt.
             if (DocumentBox.Checked == true)
             {
-                createfold("Documents");
+                createfolder("Documents");
 
                 var docfolder = Directory.GetCurrentDirectory();
 
@@ -138,26 +166,40 @@ namespace SortOf
                 sortByExtention("rtf", docfolder);
                 sortByExtention("log", docfolder);
                 sortByExtention("css", docfolder);
+                
+                if (SortCount == 0)
+                {
+                    removefolder(docfolder);
+                }
+                else
+                    SortCount = 0;
             }
 
             progressBar1.PerformStep();
             //ImageExt.
             if (ImageBox.Checked == true)
             {
-                createfold("Images");
+                createfolder("Images");
 
                 var imgfolder = Directory.GetCurrentDirectory();
 
                 sortByExtention("iso", imgfolder);
                 sortByExtention("img", imgfolder);
                 sortByExtention("nrg", imgfolder);
+
+                if (SortCount == 0)
+                {
+                    removefolder(imgfolder);
+                }
+                else
+                    SortCount = 0;
             }
 
             progressBar1.PerformStep();
             //MusicExt.
             if (MusicBox.Checked == true)
             {
-                createfold("Music");
+                createfolder("Music");
 
                 var musfolder = Directory.GetCurrentDirectory();
 
@@ -169,13 +211,20 @@ namespace SortOf
                 sortByExtention("flac", musfolder);
                 sortByExtention("acc", musfolder);
                 sortByExtention("pls", musfolder);
+
+                if (SortCount == 0)
+                {
+                    removefolder(musfolder);
+                }
+                else
+                    SortCount = 0;
             }
             
             progressBar1.PerformStep();
             //PictureExt.
             if (PictureBox.Checked == true)
             {
-                createfold("Pictures");
+                createfolder("Pictures");
 
                 var picfolder = Directory.GetCurrentDirectory();
 
@@ -191,13 +240,20 @@ namespace SortOf
                 sortByExtention("pcx", picfolder);
                 sortByExtention("tga", picfolder);
                 sortByExtention("dib", picfolder);
+
+                if (SortCount == 0)
+                {
+                    removefolder(picfolder);
+                }
+                else
+                    SortCount = 0;
             }
             
             progressBar1.PerformStep();
             //ProgramExt.
             if (ProgramBox.Checked == true)
             {
-                createfold("Programs");
+                createfolder("Programs");
 
                 var exefolder = Directory.GetCurrentDirectory();
 
@@ -207,24 +263,38 @@ namespace SortOf
                 sortByExtention("pif", exefolder);
                 sortByExtention("cmd", exefolder);
                 sortByExtention("btm", exefolder);
+
+                if (SortCount == 0)
+                {
+                    removefolder(exefolder);
+                }
+                else
+                    SortCount = 0;
             }
 
             progressBar1.PerformStep();
             //ShortcutExt.
             if (ShortcutBox.Checked == true)
             {
-                createfold("Shortcuts");
+                createfolder("Shortcuts");
 
                 var shofolder = Directory.GetCurrentDirectory();
 
                 sortByExtention("lnk", shofolder);
+
+                if (SortCount == 0)
+                {
+                    removefolder(shofolder);
+                }
+                else
+                    SortCount = 0;
             }
 
             progressBar1.PerformStep();
             //VideoExt.
             if (VideoBox.Checked == true)
             {
-                createfold("Videos");
+                createfolder("Videos");
 
                 var vidfolder = Directory.GetCurrentDirectory();
 
@@ -240,17 +310,31 @@ namespace SortOf
                 sortByExtention("mkv", vidfolder);
                 sortByExtention("vob", vidfolder);
                 sortByExtention("mov", vidfolder);
+
+                if (SortCount == 0)
+                {
+                    removefolder(vidfolder);
+                }
+                else
+                    SortCount = 0;
             }
             
             progressBar1.PerformStep();
             //OtherExt.
             if (OtherBox.Checked == true)
             {
-                createfold("Others");
+                createfolder("Others");
 
                 var othfolder = Directory.GetCurrentDirectory();
 
                 sortByExtention("*", othfolder);
+
+                if (SortCount == 0)
+                {
+                    removefolder(othfolder);
+                }
+                else
+                    SortCount = 0;
             }
 
             progressBar1.PerformStep();

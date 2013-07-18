@@ -20,3 +20,11 @@ C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) 
 C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.csproj.GenerateResource.Cache
 C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe.manifest
 C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).application
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).pdb
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.csprojResolveAssemblyReference.cache
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.Form1.resources
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.csproj.GenerateResource.Cache
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.Properties.Resources.resources
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe.manifest
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).application
