@@ -1,5 +1,9 @@
 ﻿ChangeLog.
 
+-August 10, 2013
+	-Added Drag-and-Drop Function.
+	-Fixed bug when removing folders.
+
 -August 9, 2013
 	-Created 2 Class libraries to speed up boot and ease of code edit & design.
 	-Added UnSorting code. (Not implemented yet though)
