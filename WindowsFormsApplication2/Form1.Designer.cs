@@ -91,8 +91,7 @@
             this.MainLabel.Name = "MainLabel";
             this.MainLabel.Size = new System.Drawing.Size(415, 52);
             this.MainLabel.TabIndex = 2;
-            this.MainLabel.Text = "Please browse for the folder you want \r\nand pick what catagories you want to sort" +
-    " out.";
+            this.MainLabel.Text = "Please browse for the folder you want \r\nand pick what catagories you want to sort out.";
             this.MainLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ArchiveBox
@@ -370,7 +369,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Sort Of";
-            this.ResumeLayout(false);
+            this.ResumeLayout(true);
             this.PerformLayout();
 
         }
@@ -397,16 +396,15 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox PathBox;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label ShortcutLabel;
+        private System.Windows.Forms.CheckBox ImageBox;
+        private System.Windows.Forms.Label VideoLabel;
+        private System.Windows.Forms.CheckBox ShortcutBox;
 
         protected override void OnLoad(System.EventArgs e)
         {
             this.Activate();
         }
-
-        private System.Windows.Forms.Label ShortcutLabel;
-        private System.Windows.Forms.CheckBox ImageBox;
-        private System.Windows.Forms.Label VideoLabel;
-        private System.Windows.Forms.CheckBox ShortcutBox;
     }
 }
 

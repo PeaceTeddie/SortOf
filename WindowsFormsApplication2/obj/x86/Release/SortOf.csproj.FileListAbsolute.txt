@@ -1,8 +1,3 @@
-C:\c# Programs\SortOf(BETA).exe.config
-C:\c# Programs\SortOf(BETA).exe.manifest
-C:\c# Programs\SortOf(BETA).application
-C:\c# Programs\SortOf(BETA).exe
-C:\c# Programs\SortOf(BETA).pdb
 C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.Form1.resources
 C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.Properties.Resources.resources
@@ -28,3 +23,18 @@ C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsAp
 C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.Properties.Resources.resources
 C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe.manifest
 C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).application
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.csprojResolveAssemblyReference.cache
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.Form1.resources
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.Properties.Resources.resources
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.csproj.GenerateResource.Cache
+C:\c# Programs\SortOf.exe.config
+C:\c# Programs\Sorting.cs
+C:\c# Programs\UnSorting.cs
+C:\c# Programs\SortOf.exe.manifest
+C:\c# Programs\SortOf.application
+C:\c# Programs\SortOf.exe
+C:\c# Programs\SortOf.pdb
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.exe.manifest
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.application
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.exe
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.pdb
