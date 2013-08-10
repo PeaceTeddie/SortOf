@@ -72,8 +72,8 @@
             this.PathBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.PathBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PathBox.Location = new System.Drawing.Point(12, 90);
+            this.PathBox.Multiline = false;
             this.PathBox.Name = "PathBox";
-            this.PathBox.ReadOnly = true;
             this.PathBox.Size = new System.Drawing.Size(533, 23);
             this.PathBox.TabIndex = 1;
             this.PathBox.TabStop = false;
@@ -338,6 +338,7 @@
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
@@ -365,11 +366,13 @@
             this.Controls.Add(this.PathBox);
             this.Controls.Add(this.BrowseButton);
             this.Controls.Add(this.progressBar1);
+            this.DragDrop += SortOf_DragDrop;
+            this.DragEnter += SortOf_DragEnter;
             this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Sort Of";
-            this.ResumeLayout(true);
+            this.ResumeLayout(false);
             this.PerformLayout();
 
         }

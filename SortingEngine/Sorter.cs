@@ -16,8 +16,8 @@ namespace SortingEngine
         {
             int FileCount = Directory.GetFiles(CurrentDirectory + "\\" + ExtFolder).Count();
 
-            if (!SortingDone && FileCount == 0)
-                RemoveFolder(CurrentDirectory + "\\" + ExtFolder);            
+            if (!SortingDone || FileCount == 0)
+                RemoveFolder(ExtFolder);            
         }
 
         public void CreateFolder(string Folder)

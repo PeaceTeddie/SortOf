@@ -28,7 +28,28 @@ namespace SortOf
             InitializeComponent();
         }
 
-        public void BrowseButton_Click(object sender, EventArgs e)
+        void SortOf_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+        void SortOf_DragDrop(object sender, DragEventArgs e)
+        {
+            foreach (string Folder in (string[])e.Data.GetData(DataFormats.FileDrop))
+            {
+                if (Directory.Exists(Folder))
+                {
+                    CurrentDirectory = Folder;
+                    PathBox.Clear();
+                    PathBox.Paste(Folder);
+                }
+            }
+        }
+
+        void BrowseButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -37,7 +58,7 @@ namespace SortOf
                 if (Result == DialogResult.OK)
                 {
                     PathBox.Clear();
-                    PathBox.Paste(CurrentDirectory);                    
+                    PathBox.Paste(CurrentDirectory);
                 }
             }
             catch (Exception E)
@@ -46,7 +67,7 @@ namespace SortOf
             }
         }
 
-        public void SortButton_Click(object sender, EventArgs e)
+        void SortButton_Click(object sender, EventArgs e)
         {
             //ReturnCode
             if (PathBox.Text == "" || !Directory.Exists(PathBox.Text))
