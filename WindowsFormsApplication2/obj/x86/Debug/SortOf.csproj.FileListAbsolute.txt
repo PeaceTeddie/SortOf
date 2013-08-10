@@ -1,23 +1,11 @@
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\bin\Debug\SortOf(BETA).exe.config
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\bin\Debug\SortOf(BETA).exe.manifest
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\bin\Debug\SortOf(BETA).application
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\bin\Debug\SortOf(BETA).exe
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\bin\Debug\SortOf(BETA).pdb
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\SortOf.Form1.resources
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\SortOf.Properties.Resources.resources
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\SortOf(BETA).exe.manifest
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\SortOf(BETA).application
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\SortOf(BETA).exe
-C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Debug\SortOf(BETA).pdb
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortOf.exe.config
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortOf.exe.manifest
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortOf.application
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortOf.exe
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortOf.pdb
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\ExtManager.dll
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortingEngine.dll
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\ExtManager.pdb
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortingEngine.pdb
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.csprojResolveAssemblyReference.cache
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.Form1.resources
@@ -27,5 +15,3 @@ C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplica
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.application
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.exe
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.pdb
-C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\ExtManager.dll
-C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\ExtManager.pdb
