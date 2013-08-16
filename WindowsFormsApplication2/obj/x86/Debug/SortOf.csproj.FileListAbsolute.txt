@@ -15,3 +15,6 @@ C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplica
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.application
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.exe
 C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.pdb
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\bin\Debug\SortOf.exe.config
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.exe
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Debug\SortOf.pdb

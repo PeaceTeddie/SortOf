@@ -1,0 +1,30 @@
+C:\c# Programs\SortOf(BETA).exe.config
+C:\c# Programs\SortOf(BETA).exe.manifest
+C:\c# Programs\SortOf(BETA).application
+C:\c# Programs\SortOf(BETA).exe
+C:\c# Programs\SortOf(BETA).pdb
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.Form1.resources
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.Properties.Resources.resources
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe.manifest
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).application
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe
+C:\Users\osdethth10\Documents\Visual Studio 2010\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).pdb
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).pdb
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.csprojResolveAssemblyReference.cache
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.Form1.resources
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.Properties.Resources.resources
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf.csproj.GenerateResource.Cache
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe.manifest
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\Sort Of (unfinished) WFA\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).application
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).pdb
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.csprojResolveAssemblyReference.cache
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.Form1.resources
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.csproj.GenerateResource.Cache
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf.Properties.Resources.resources
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).exe.manifest
+C:\Users\PeaceTeddie\Documents\Visual Studio 2012\Projects\SortOf\WindowsFormsApplication2\obj\x86\Release\SortOf(BETA).application

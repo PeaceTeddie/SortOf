@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.BrowseButton = new System.Windows.Forms.Button();
-            this.PathBox = new System.Windows.Forms.TextBox();
             this.MainLabel = new System.Windows.Forms.Label();
             this.ArchiveBox = new System.Windows.Forms.CheckBox();
             this.PictureLabel = new System.Windows.Forms.Label();
@@ -47,12 +46,14 @@
             this.OtherLabel = new System.Windows.Forms.Label();
             this.VideoBox = new System.Windows.Forms.CheckBox();
             this.SortButton = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.Browser = new System.Windows.Forms.FolderBrowserDialog();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.ShortcutLabel = new System.Windows.Forms.Label();
             this.ImageBox = new System.Windows.Forms.CheckBox();
             this.VideoLabel = new System.Windows.Forms.Label();
             this.ShortcutBox = new System.Windows.Forms.CheckBox();
+            this.UnsortButton = new System.Windows.Forms.Button();
+            this.PathBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // BrowseButton
@@ -66,19 +67,6 @@
             this.BrowseButton.UseVisualStyleBackColor = true;
             this.BrowseButton.Click += new System.EventHandler(this.BrowseButton_Click);
             // 
-            // PathBox
-            // 
-            this.PathBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
-            this.PathBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.PathBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PathBox.Location = new System.Drawing.Point(12, 90);
-            this.PathBox.Multiline = false;
-            this.PathBox.Name = "PathBox";
-            this.PathBox.Size = new System.Drawing.Size(533, 23);
-            this.PathBox.TabIndex = 1;
-            this.PathBox.TabStop = false;
-            this.PathBox.WordWrap = false;
-            // 
             // MainLabel
             // 
             this.MainLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -91,7 +79,8 @@
             this.MainLabel.Name = "MainLabel";
             this.MainLabel.Size = new System.Drawing.Size(415, 52);
             this.MainLabel.TabIndex = 2;
-            this.MainLabel.Text = "Please browse for the folder you want \r\nand pick what catagories you want to sort out.";
+            this.MainLabel.Text = "Please browse for the folder you want \r\nand pick what catagories you want to sort" +
+    " out.";
             this.MainLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ArchiveBox
@@ -275,10 +264,10 @@
             this.SortButton.UseVisualStyleBackColor = true;
             this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
             // 
-            // folderBrowserDialog1
+            // Browser
             // 
-            this.folderBrowserDialog1.Description = "Please select folder to ~~Sort Out~~";
-            this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            this.Browser.Description = "Please select folder to ~~Sort Out~~";
+            this.Browser.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
             // progressBar1
             // 
@@ -336,6 +325,29 @@
             this.ShortcutBox.TabIndex = 21;
             this.ShortcutBox.UseVisualStyleBackColor = false;
             // 
+            // UnsortButton
+            // 
+            this.UnsortButton.Location = new System.Drawing.Point(10, 10);
+            this.UnsortButton.Name = "UnsortButton";
+            this.UnsortButton.Size = new System.Drawing.Size(25, 25);
+            this.UnsortButton.TabIndex = 22;
+            this.UnsortButton.TabStop = false;
+            this.UnsortButton.Text = "<";
+            this.UnsortButton.UseVisualStyleBackColor = true;
+            this.UnsortButton.Click += new System.EventHandler(this.UnsortButton_Click);
+            // 
+            // PathBox
+            // 
+            this.PathBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
+            this.PathBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.PathBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PathBox.Location = new System.Drawing.Point(12, 90);
+            this.PathBox.Name = "PathBox";
+            this.PathBox.Size = new System.Drawing.Size(533, 23);
+            this.PathBox.TabIndex = 1;
+            this.PathBox.TabStop = false;
+            this.PathBox.WordWrap = false;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -343,6 +355,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(651, 245);
+            this.Controls.Add(this.UnsortButton);
             this.Controls.Add(this.ShortcutBox);
             this.Controls.Add(this.VideoLabel);
             this.Controls.Add(this.ImageBox);
@@ -366,8 +379,6 @@
             this.Controls.Add(this.PathBox);
             this.Controls.Add(this.BrowseButton);
             this.Controls.Add(this.progressBar1);
-            this.DragDrop += SortOf_DragDrop;
-            this.DragEnter += SortOf_DragEnter;
             this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -396,7 +407,8 @@
         private System.Windows.Forms.Label OtherLabel;
         private System.Windows.Forms.CheckBox VideoBox;
         private System.Windows.Forms.Button SortButton;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button UnsortButton;
+        private System.Windows.Forms.FolderBrowserDialog Browser;
         private System.Windows.Forms.TextBox PathBox;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label ShortcutLabel;

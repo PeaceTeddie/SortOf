@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 using ExtManager;
@@ -31,9 +33,7 @@ namespace SortOf
         void SortOf_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
+                e.Effect = DragDropEffects.Copy;            
         }
 
         void SortOf_DragDrop(object sender, DragEventArgs e)
@@ -53,10 +53,10 @@ namespace SortOf
         {
             try
             {
-                DialogResult Result = this.folderBrowserDialog1.ShowDialog();
-                CurrentDirectory = folderBrowserDialog1.SelectedPath;
+                DialogResult Result = this.Browser.ShowDialog();
                 if (Result == DialogResult.OK)
                 {
+                    CurrentDirectory = Browser.SelectedPath;
                     PathBox.Clear();
                     PathBox.Paste(CurrentDirectory);
                 }
@@ -78,75 +78,144 @@ namespace SortOf
 
             //Misc.
             this.Cursor = Cursors.WaitCursor;
-
             this.progressBar1.BringToFront();
-
             this.Enabled = false;
 
             progressBar1.PerformStep();
-            //ArchiveExt.
+
+            #region Sorting Code
+            //Archive Sort.
             if (ArchiveBox.Checked == true)
-            {
                 Archives.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //DocumentExt.
+
+            //Document Sort.
             if (DocumentBox.Checked == true)
-            {
                 Documents.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //ImageExt.
+
+            //Image Sort.
             if (ImageBox.Checked == true)
-            {
                 Images.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //MusicExt.
+
+            //Music Sort.
             if (MusicBox.Checked == true)
-            {
                 Music.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //PictureExt.
+            
+            //Picture Sort.
             if (PictureBox.Checked == true)
-            {
                 Pictures.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //ProgramExt.
+            
+            //Program Sort.
             if (ProgramBox.Checked == true)
-            {
                 Programs.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //ShortcutExt.
+            
+            //Shortcut Sort.
             if (ShortcutBox.Checked == true)
-            {
                 Shortcuts.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //VideoExt.
+            
+            //Video Sort.
             if (VideoBox.Checked == true)
-            {
                 Videos.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
-            //OtherExt.
+            
+            //Other Sort.
             if (OtherBox.Checked == true)
-            {
                 Others.Sort(CurrentDirectory);
-            }
 
             progressBar1.PerformStep();
+
+            #endregion
+
+            MessageBox.Show("You are Victorious!");
+            Application.Restart();
+        }
+
+        void UnsortButton_Click(object sender, EventArgs e)
+        {
+            //ReturnCode
+            if (PathBox.Text == "" || !Directory.Exists(PathBox.Text))
+            {
+                MessageBox.Show("Invalid Directory Path.");
+                return;
+            }
+
+            //Misc.
+            this.Cursor = Cursors.WaitCursor;
+            this.progressBar1.BringToFront();
+            this.Enabled = false;
+
+            progressBar1.PerformStep();
+
+            #region Unsorting Code
+            //Archive Sort.
+            if (ArchiveBox.Checked == true)
+                Archives.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Document Unsort.
+            if (DocumentBox.Checked == true)
+                Documents.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Image Unsort.
+            if (ImageBox.Checked == true)
+                Images.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Music Unsort.
+            if (MusicBox.Checked == true)
+                Music.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Picture Unsort.
+            if (PictureBox.Checked == true)
+                Pictures.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Program Unsort.
+            if (ProgramBox.Checked == true)
+                Programs.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Shortcut Unsort.
+            if (ShortcutBox.Checked == true)
+                Shortcuts.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Video Unsort.
+            if (VideoBox.Checked == true)
+                Videos.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            //Other Unsort.
+            if (OtherBox.Checked == true)
+                Others.Unsort(CurrentDirectory);
+
+            progressBar1.PerformStep();
+
+            #endregion
 
             MessageBox.Show("You are Victorious!");
             Application.Restart();

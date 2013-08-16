@@ -43,5 +43,13 @@ namespace ExtManager
 				Sorter.ByExtension(Extension, Folder);
 			Sorter.Check(Folder);
 		}
+
+		public void Unsort(string CurrentDirectory)
+		{
+			UnSorter.CurrentDirectory = CurrentDirectory;
+			foreach (string Extension in Extensions)
+				UnSorter.ByFolder(Folder);
+			UnSorter.Check(Folder);
+		}
 	}
 }

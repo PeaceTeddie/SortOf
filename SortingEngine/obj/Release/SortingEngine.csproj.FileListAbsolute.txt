@@ -1,0 +1,5 @@
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\bin\Release\SortingEngine.dll
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\bin\Release\SortingEngine.pdb
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\obj\Release\SortingEngine.csprojResolveAssemblyReference.cache
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\obj\Release\SortingEngine.dll
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\obj\Release\SortingEngine.pdb

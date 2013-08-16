@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExtManager.dll" size="9216">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExtManager.dll" size="10752">
       <assemblyIdentity name="ExtManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9ujkYnNMeEPcrP+5fnko1YPzc98=</dsig:DigestValue>
+        <dsig:DigestValue>LzJkZiDqRrI17tIcMlUmnyg1xI0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,29 +62,29 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RMNtBV9fYsig28GauEjdBYbEePY=</dsig:DigestValue>
+        <dsig:DigestValue>dr4wFABoBzZjB62agw7Q0xdVAUU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortOf.exe" size="183296">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortOf.exe" size="183808">
       <assemblyIdentity name="SortOf" version="1.6.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>NeaThj9jeGyJtID3tJ1J020gOzs=</dsig:DigestValue>
+        <dsig:DigestValue>xncw8/8eYO8qFa6NP9hzMRG6oNE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ChangeLog.txt" size="166">
+  <file name="ChangeLog.txt" size="255">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lmQ6yHSgKHEIM2R3tseMdWXa4hg=</dsig:DigestValue>
+      <dsig:DigestValue>GpdKO8IiS5dJo4IuEBQcSuEXVAI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="favicon.ico" size="82726">
@@ -96,13 +96,13 @@
       <dsig:DigestValue>r2cISBzY85dHcpj1cx4bvpttl1A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SortOf.exe.config" size="122">
+  <file name="SortOf.exe.config" size="159">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>apoSnLB6MI2nAFf0/vrkWia9qiw=</dsig:DigestValue>
+      <dsig:DigestValue>iRAHJ6tbolfYaD2jvVHOMjw6bMQ=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

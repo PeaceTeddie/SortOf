@@ -1,0 +1,7 @@
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\ExtManager\bin\Release\ExtManager.dll
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\ExtManager\bin\Release\ExtManager.pdb
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\ExtManager\bin\Release\SortingEngine.dll
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\ExtManager\bin\Release\SortingEngine.pdb
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\ExtManager\obj\Release\ExtManager.csprojResolveAssemblyReference.cache
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\ExtManager\obj\Release\ExtManager.dll
+C:\Users\Teddie\Documents\Visual Studio 2012\Projects\SortOf\ExtManager\obj\Release\ExtManager.pdb
