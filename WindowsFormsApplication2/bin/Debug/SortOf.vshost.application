@@ -3,7 +3,7 @@
   <assemblyIdentity name="SortOf.application" version="1.2.0.0" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="x86" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <description asmv2:publisher="Tim Thompson" asmv2:product="SortOf" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" co.v1:createDesktopShortcut="true">
-    <deploymentProvider codebase="http://teddiebot/SortOf(BETA)/SortOf.application" />
+    <deploymentProvider codebase="http://peaceteddie-pc/SortOf(BETA)/SortOf.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
@@ -16,7 +16,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ZSBzs2QqB2hteMwFhO61NofZub4=</dsig:DigestValue>
+        <dsig:DigestValue>i2Jblpg0HE/NfTVXq0ySM2ZO+1c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

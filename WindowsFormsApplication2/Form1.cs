@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ExtManager;
+using System;
 using System.IO;
-using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
-
-using ExtManager;
 
 namespace SortOf
 {
@@ -33,7 +29,9 @@ namespace SortOf
         void SortOf_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
-                e.Effect = DragDropEffects.Copy;            
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
         }
 
         void SortOf_DragDrop(object sender, DragEventArgs e)
