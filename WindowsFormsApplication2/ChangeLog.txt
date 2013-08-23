@@ -1,5 +1,16 @@
 ﻿ChangeLog.
 
+-August 24, 2013
+	-Reworked design
+	-Added Settings Button and form(WIP)
+	-Working on adding Ebooks and torrents as categories
+
+-August 19, 2013
+	-Fixed DragDrop bug
+
+-August 16, 2013
+	-Added reverse button
+
 -August 10, 2013
 	-Added Drag-and-Drop Function.
 	-Fixed bug when removing folders.

@@ -1,7 +1,9 @@
 ﻿using ExtManager;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using SortOf.Properties;
 
 namespace SortOf
 {
@@ -14,6 +16,8 @@ namespace SortOf
         Music Music = new Music();
         Pictures Pictures = new Pictures();
         Programs Programs = new Programs();
+        Settings Settings = new Settings();
+        SetDialog SettingsDialog = new SetDialog();
         Shortcuts Shortcuts = new Shortcuts();
         Others Others = new Others();
         Videos Videos = new Videos();
@@ -33,7 +37,6 @@ namespace SortOf
                 e.Effect = DragDropEffects.Copy;
             }
         }
-
         void SortOf_DragDrop(object sender, DragEventArgs e)
         {
             foreach (string Folder in (string[])e.Data.GetData(DataFormats.FileDrop))
@@ -76,72 +79,71 @@ namespace SortOf
 
             //Misc.
             this.Cursor = Cursors.WaitCursor;
-            this.progressBar1.BringToFront();
+            this.ProgBar.BringToFront();
             this.Enabled = false;
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             #region Sorting Code
             //Archive Sort.
-            if (ArchiveBox.Checked == true)
+            if (Settings.ArchiveBox == true)
                 Archives.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Document Sort.
-            if (DocumentBox.Checked == true)
+            if (Settings.DocumentBox == true)
                 Documents.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Image Sort.
-            if (ImageBox.Checked == true)
+            if (Settings.ImageBox == true)
                 Images.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Music Sort.
-            if (MusicBox.Checked == true)
+            if (Settings.MusicBox == true)
                 Music.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
             
             //Picture Sort.
-            if (PictureBox.Checked == true)
+            if (Settings.PictureBox == true)
                 Pictures.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
             
             //Program Sort.
-            if (ProgramBox.Checked == true)
+            if (Settings.ProgramBox == true)
                 Programs.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
             
             //Shortcut Sort.
-            if (ShortcutBox.Checked == true)
+            if (Settings.ShortcutBox == true)
                 Shortcuts.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
             
             //Video Sort.
-            if (VideoBox.Checked == true)
+            if (Settings.VideoBox == true)
                 Videos.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
             
             //Other Sort.
-            if (OtherBox.Checked == true)
+            if (Settings.OtherBox == true)
                 Others.Sort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             #endregion
 
             MessageBox.Show("You are Victorious!");
             Application.Restart();
         }
-
         void UnsortButton_Click(object sender, EventArgs e)
         {
             //ReturnCode
@@ -153,70 +155,78 @@ namespace SortOf
 
             //Misc.
             this.Cursor = Cursors.WaitCursor;
-            this.progressBar1.BringToFront();
+            this.ProgBar.BringToFront();
             this.Enabled = false;
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             #region Unsorting Code
             //Archive Sort.
-            if (ArchiveBox.Checked == true)
+            if (Settings.ArchiveBox == true)
                 Archives.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Document Unsort.
-            if (DocumentBox.Checked == true)
+            if (Settings.DocumentBox == true)
                 Documents.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Image Unsort.
-            if (ImageBox.Checked == true)
+            if (Settings.ImageBox == true)
                 Images.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Music Unsort.
-            if (MusicBox.Checked == true)
+            if (Settings.MusicBox == true)
                 Music.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Picture Unsort.
-            if (PictureBox.Checked == true)
+            if (Settings.PictureBox == true)
                 Pictures.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Program Unsort.
-            if (ProgramBox.Checked == true)
+            if (Settings.ProgramBox == true)
                 Programs.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Shortcut Unsort.
-            if (ShortcutBox.Checked == true)
+            if (Settings.ShortcutBox == true)
                 Shortcuts.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Video Unsort.
-            if (VideoBox.Checked == true)
+            if (Settings.VideoBox == true)
                 Videos.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             //Other Unsort.
-            if (OtherBox.Checked == true)
+            if (Settings.OtherBox == true)
                 Others.Unsort(CurrentDirectory);
 
-            progressBar1.PerformStep();
+            ProgBar.PerformStep();
 
             #endregion
 
             MessageBox.Show("You are Victorious!");
             Application.Restart();
+        }
+
+        void SetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult SetResult = SettingsDialog.ShowDialog();
+            if (SetResult == DialogResult.OK)            
+                SettingsDialog.SaveSettings();
+            Settings.Reload();            
         }
     }
 }
