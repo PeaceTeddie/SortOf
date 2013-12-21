@@ -1,44 +1,35 @@
-﻿using System;
+﻿using SortingEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SortingEngine;
 
 namespace ExtManager
 {
 	public class Shortcuts
 	{
-		Sorter Sorter = new Sorter();
-		UnSorter UnSorter = new UnSorter();
-
-		const string Folder = "Shortcuts";
+		private const string ExtFolder = "Shortcuts\\";
 
 		#region Shortcut Extensions
-		static string[] ShortcutExtensions =
+
+		private static string[] ShortcutExtensions =
 			{
 			   "lnk"
 			};
-		#endregion
 
-		static List<string> Extensions = new List<string>(ShortcutExtensions);
+		#endregion Shortcut Extensions
 
-		public void Sort(string CurrentDirectory)
+		public static List<string> Extensions = new List<string>(ShortcutExtensions);
+
+		public void Sort(Sorter Sorter)
 		{
-			Sorter.CurrentDirectory = CurrentDirectory;
-			Sorter.CreateFolder(Folder);
+			Sorter.CreateFolder(ExtFolder);
 			foreach (string Extension in Extensions)
-				Sorter.ByExtension(Extension, Folder);
-			Sorter.Check(Folder);
+				Sorter.ByExtension(Extension, ExtFolder);
+			Sorter.Check(ExtFolder);
 		}
 
-		public void Unsort(string CurrentDirectory)
+		public void Unsort(UnSorter UnSorter)
 		{
-			UnSorter.CurrentDirectory = CurrentDirectory;
-			foreach (string Extension in Extensions)
-				UnSorter.ByFolder(Folder);
-			UnSorter.Check(Folder);
+			UnSorter.ByFolder(ExtFolder);
+			UnSorter.Check(ExtFolder);
 		}
 	}
 }

@@ -3,31 +3,20 @@ using System.Collections.Generic;
 
 namespace ExtManager
 {
-	public class Archives
+	public class Torrents
 	{
+		private const string ExtFolder = "Torrents\\";
 
-		private const string ExtFolder = "Archives\\";
+		#region Torrent Extensions
 
-		#region Archive Extensions
+		private static string[] TorrentExtensions =
+			{
+			   "torrent"
+			};
 
-		private static string[] ArchiveExtensions =
-		{
-			"zip",
-			"rar",
-			"7z",
-			"ace",
-			"cab",
-			"tar",
-			"jar",
-			"pak",
-			"pk3",
-			"pk4",
-			"wad"
-		};
+		#endregion Torrent Extensions
 
-		#endregion Archive Extensions
-
-		public static List<string> Extensions = new List<string>(ArchiveExtensions);
+		public static List<string> Extensions = new List<string>(TorrentExtensions);
 
 		public void Sort(Sorter Sorter)
 		{

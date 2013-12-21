@@ -7,3 +7,4 @@ C:\Users\Peaceteddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\
 C:\Users\Peaceteddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\bin\Debug\SortingEngine.pdb
 C:\Users\Peaceteddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\obj\Debug\SortingEngine.dll
 C:\Users\Peaceteddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\obj\Debug\SortingEngine.pdb
+C:\Users\Peaceteddie\Documents\Visual Studio 2012\Projects\SortOf\SortingEngine\obj\Debug\SortingEngine.csprojResolveAssemblyReference.cache

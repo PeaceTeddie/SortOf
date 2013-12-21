@@ -1,59 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SortingEngine
 {
     public class UnSorter
     {
         public string CurrentDirectory { get; set; }
+        private string ActiveDirectory { get; set; }
 
         public void Check(string ExtFolder)
         {
-            if (Directory.Exists(CurrentDirectory + "\\" + ExtFolder))
+            ActiveDirectory = CurrentDirectory + ExtFolder;
+
+            if (Directory.Exists(ActiveDirectory))
             {
-                int FileCount = Directory.GetFiles(CurrentDirectory + "\\" + ExtFolder).Count();
+                int FileCount = Directory.GetFiles(ActiveDirectory).Count();
 
                 if (FileCount == 0)
-                    RemoveFolder(CurrentDirectory + "\\" + ExtFolder);
+                    Directory.Delete(ActiveDirectory);
+                else return;
             }
             else return;
         }
 
-        private void RemoveFolder(string Folder)
+        public void ByFolder(string ExtFolder)
         {
-            try
-            {
-                Directory.Delete(Folder);
-            }
-            catch (Exception) { }
-        }
+            ActiveDirectory = CurrentDirectory + ExtFolder;
 
-        public void ByFolder(string ExtFolder) 
-        {
-            if (Directory.Exists(CurrentDirectory + "\\" + ExtFolder))
+            if (Directory.Exists(ActiveDirectory))
             {
-                string[] Files = Directory.GetFiles(CurrentDirectory + "\\" + ExtFolder, "*", SearchOption.TopDirectoryOnly);
+                string[] Files = Directory.GetFiles(ActiveDirectory, "*", SearchOption.TopDirectoryOnly);
 
                 int FileCount = Files.Count();
-                if (FileCount != 0)
+                if (FileCount > 0)
                 {
                     foreach (string File in Files)
                     {
-                        int i = 0;
-
                         try
                         {
-                            Directory.Move(Path.GetFullPath(File), CurrentDirectory + "\\" + Path.GetFileName(File));
+                            Directory.Move(Path.GetFullPath(File), CurrentDirectory + Path.GetFileName(File));
                         }
-                        catch (Exception)
+                        catch (Exception E)
                         {
-                            string[] Name = File.Split('.');
-                            string NewName = Name[0] + " (" + i++ + ")." + Name[1];
-                            Directory.Move(Path.GetFullPath(File), CurrentDirectory + "\\" + Path.GetFileName(NewName));
+                            if (E.Equals(new IOException()))
+                                return;
+                            else
+                            {
+                                int DupFiles = Directory.GetFiles(CurrentDirectory, Path.GetFileName(File), SearchOption.TopDirectoryOnly).Count();
+                                string[] Name = File.Split('.');
+                                string NewName = Name[0] + " (" + DupFiles++ + ")." + Name[1];
+                                Directory.Move(Path.GetFullPath(File), CurrentDirectory + Path.GetFileName(NewName));
+                            }
                         }
                     }
                 }
@@ -62,4 +60,3 @@ namespace SortingEngine
         }
     }
 }
-

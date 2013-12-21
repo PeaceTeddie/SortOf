@@ -1,44 +1,30 @@
-﻿using System;
+﻿using SortingEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SortingEngine;
 
 namespace ExtManager
 {
-	public class Others
-	{
-		Sorter Sorter = new Sorter();
-		UnSorter UnSorter = new UnSorter();
+    public class Others
+    {
+        private const string ExtFolder = "Others\\";
 
-		const string Folder = "Others";
+        private List<string> ExcludedExts = new List<string>();
 
-		#region Others Extensions
-		static string[] OthersExtensions =
-			{
-			   "*"
-			};
-		#endregion
+        public void ExcludeExts(List<string> Exts)
+        {
+            ExcludedExts.AddRange(Exts);
+        }
 
-		static List<string> Extensions = new List<string>(OthersExtensions);
+        public void Sort(Sorter Sorter)
+        {
+            Sorter.CreateFolder(ExtFolder);
+            Sorter.Others(ExcludedExts, ExtFolder);
+            Sorter.Check(ExtFolder);
+        }
 
-		public void Sort(string CurrentDirectory)
-		{
-			Sorter.CurrentDirectory = CurrentDirectory;
-			Sorter.CreateFolder(Folder);
-			foreach (string Extension in Extensions)
-				Sorter.ByExtension(Extension, Folder);
-			Sorter.Check(Folder);
-		}
-
-		public void Unsort(string CurrentDirectory)
-		{
-			UnSorter.CurrentDirectory = CurrentDirectory;
-			foreach (string Extension in Extensions)
-				UnSorter.ByFolder(Folder);
-			UnSorter.Check(Folder);
-		}
-	}
+        public void Unsort(UnSorter UnSorter)
+        {
+            UnSorter.ByFolder(ExtFolder);
+            UnSorter.Check(ExtFolder);
+        }
+    }
 }

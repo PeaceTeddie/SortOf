@@ -1,5 +1,9 @@
 ﻿ChangeLog.
 
+-August 26, 2013
+	-Added a context menu of 3 most recent directories
+	-Fixed DragDrop bug
+
 -August 24, 2013
 	-Reworked design
 	-Added Settings Button and form(WIP)

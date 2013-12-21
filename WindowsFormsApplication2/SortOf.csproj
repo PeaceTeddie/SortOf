@@ -168,6 +168,10 @@
       <Name>ExtManager</Name>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
+    <ProjectReference Include="..\SortingEngine\SortingEngine.csproj">
+      <Project>{13ecf20f-4bd8-4bb9-8f30-51458330e072}</Project>
+      <Name>SortingEngine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

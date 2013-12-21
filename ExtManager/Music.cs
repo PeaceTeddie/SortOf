@@ -1,23 +1,16 @@
-﻿using System;
+﻿using SortingEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SortingEngine;
 
 namespace ExtManager
 {
     public class Music
     {
-        Sorter Sorter = new Sorter();
-        UnSorter UnSorter = new UnSorter();
-
-        const string Folder = "Music";
+        private const string ExtFolder = "Music\\";
 
         #region Music Extensions
-        static string[] MusicExtensions =
-            {  
+
+        private static string[] MusicExtensions =
+            {
                 "mp3",
                 "wma",
                 "wav",
@@ -27,25 +20,23 @@ namespace ExtManager
                 "flac",
                 "acc"
             };
-        #endregion
 
-        static List<string> Extensions = new List<string>(MusicExtensions);
+        #endregion Music Extensions
 
-        public void Sort(string CurrentDirectory)
+        public static List<string> Extensions = new List<string>(MusicExtensions);
+
+        public void Sort(Sorter Sorter)
         {
-            Sorter.CurrentDirectory = CurrentDirectory;
-            Sorter.CreateFolder(Folder);
+            Sorter.CreateFolder(ExtFolder);
             foreach (string Extension in Extensions)
-                Sorter.ByExtension(Extension, Folder);
-            Sorter.Check(Folder);
+                Sorter.ByExtension(Extension, ExtFolder);
+            Sorter.Check(ExtFolder);
         }
 
-        public void Unsort(string CurrentDirectory)
+        public void Unsort(UnSorter UnSorter)
         {
-            UnSorter.CurrentDirectory = CurrentDirectory;
-            foreach (string Extension in Extensions)
-                UnSorter.ByFolder(Folder);
-            UnSorter.Check(Folder);
+            UnSorter.ByFolder(ExtFolder);
+            UnSorter.Check(ExtFolder);
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         public void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.BrowseButton = new System.Windows.Forms.Button();
             this.MainLabel = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.ProgBar = new System.Windows.Forms.ProgressBar();
             this.UnsortButton = new System.Windows.Forms.Button();
             this.PathBox = new System.Windows.Forms.TextBox();
+            this.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SetButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -104,6 +106,7 @@
             // PathBox
             // 
             this.PathBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystemDirectories;
+            this.PathBox.ContextMenuStrip = this.ContextMenuStrip;
             this.PathBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.PathBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PathBox.Location = new System.Drawing.Point(10, 90);
@@ -112,6 +115,12 @@
             this.PathBox.TabIndex = 1;
             this.PathBox.TabStop = false;
             this.PathBox.WordWrap = false;
+            // 
+            // ContextMenuStrip
+            // 
+            this.ContextMenuStrip.Name = "ContextMenuStrip";
+            this.ContextMenuStrip.Size = new System.Drawing.Size(61, 4);
+            this.ContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextMenuStrip_ItemClicked);
             // 
             // SetButton
             // 
@@ -142,6 +151,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Sort Of";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.SortOf_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.SortOf_DragEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,13 +167,13 @@
         private System.Windows.Forms.FolderBrowserDialog Browser;
         private System.Windows.Forms.TextBox PathBox;
         private System.Windows.Forms.ProgressBar ProgBar;
+        private System.Windows.Forms.Button SetButton;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuStrip;
 
         protected override void OnLoad(System.EventArgs e)
         {
             this.Activate();
         }
-
-        private System.Windows.Forms.Button SetButton;
     }
 }
 

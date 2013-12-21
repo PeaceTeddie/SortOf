@@ -1,58 +1,49 @@
-﻿using System;
+﻿using SortingEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SortingEngine;
 
 namespace ExtManager
 {
     public class Documents
     {
-        Sorter Sorter = new Sorter();
-        UnSorter UnSorter = new UnSorter();
-
-        const string Folder = "Documents";
+        private const string ExtFolder = "Documents\\";
 
         #region Document Extensions
-        static string[] DocumentExtensions =
+
+        private static string[] DocumentExtensions =
             {
-                "doc",                
+                "doc",
                 "docx",
-                "pdf",                
+                "pdf",
                 "xls",
-                "xlsx",                
+                "xlsx",
                 "txt",
-                "ppt",                
+                "ppt",
                 "pptx",
-                "html",                
+                "html",
                 "htm",
-                "php",                
+                "php",
                 "xml",
-                "rtf",                
+                "rtf",
                 "log",
                 "css"
             };
-        #endregion
 
-        static List<string> Extensions = new List<string>(DocumentExtensions);
+        #endregion Document Extensions
 
-        public void Sort(string CurrentDirectory)
+        public static List<string> Extensions = new List<string>(DocumentExtensions);
+
+        public void Sort(Sorter Sorter)
         {
-            Sorter.CurrentDirectory = CurrentDirectory;
-            Sorter.CreateFolder(Folder);
+            Sorter.CreateFolder(ExtFolder);
             foreach (string Extension in Extensions)
-                Sorter.ByExtension(Extension, Folder);
-            Sorter.Check(Folder);
+                Sorter.ByExtension(Extension, ExtFolder);
+            Sorter.Check(ExtFolder);
         }
 
-        public void Unsort(string CurrentDirectory)
+        public void Unsort(UnSorter UnSorter)
         {
-            UnSorter.CurrentDirectory = CurrentDirectory;
-            foreach (string Extension in Extensions)
-                UnSorter.ByFolder(Folder);
-            UnSorter.Check(Folder);
+            UnSorter.ByFolder(ExtFolder);
+            UnSorter.Check(ExtFolder);
         }
     }
 }

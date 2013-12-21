@@ -3,31 +3,19 @@ using System.Collections.Generic;
 
 namespace ExtManager
 {
-	public class Archives
+	public class Ebooks
 	{
+		private const string ExtFolder = "Ebooks\\";
 
-		private const string ExtFolder = "Archives\\";
+		#region Ebook Extensions
 
-		#region Archive Extensions
+		private static string[] EbookExtensions =
+			{
+			};
 
-		private static string[] ArchiveExtensions =
-		{
-			"zip",
-			"rar",
-			"7z",
-			"ace",
-			"cab",
-			"tar",
-			"jar",
-			"pak",
-			"pk3",
-			"pk4",
-			"wad"
-		};
+		#endregion Ebook Extensions
 
-		#endregion Archive Extensions
-
-		public static List<string> Extensions = new List<string>(ArchiveExtensions);
+		public static List<string> Extensions = new List<string>(EbookExtensions);
 
 		public void Sort(Sorter Sorter)
 		{

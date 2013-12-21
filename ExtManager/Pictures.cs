@@ -1,22 +1,15 @@
-﻿using System;
+﻿using SortingEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SortingEngine;
 
 namespace ExtManager
 {
     public class Pictures
     {
-        Sorter Sorter = new Sorter();
-        UnSorter UnSorter = new UnSorter();
-
-        const string Folder = "Pictures";
+        private const string ExtFolder = "Pictures\\";
 
         #region Picture Extensions
-        static string[] PictureExtensions =
+
+        private static string[] PictureExtensions =
             {
                 "jpg",
                 "jpeg",
@@ -31,25 +24,23 @@ namespace ExtManager
                 "tga",
                 "dib"
             };
-        #endregion
 
-        static List<string> Extensions = new List<string>(PictureExtensions);
+        #endregion Picture Extensions
 
-        public void Sort(string CurrentDirectory)
+        public static List<string> Extensions = new List<string>(PictureExtensions);
+
+        public void Sort(Sorter Sorter)
         {
-            Sorter.CurrentDirectory = CurrentDirectory;
-            Sorter.CreateFolder(Folder);
+            Sorter.CreateFolder(ExtFolder);
             foreach (string Extension in Extensions)
-                Sorter.ByExtension(Extension, Folder);
-            Sorter.Check(Folder);
+                Sorter.ByExtension(Extension, ExtFolder);
+            Sorter.Check(ExtFolder);
         }
 
-        public void Unsort(string CurrentDirectory)
+        public void Unsort(UnSorter UnSorter)
         {
-            UnSorter.CurrentDirectory = CurrentDirectory;
-            foreach (string Extension in Extensions)
-                UnSorter.ByFolder(Folder);
-            UnSorter.Check(Folder);
+            UnSorter.ByFolder(ExtFolder);
+            UnSorter.Check(ExtFolder);
         }
     }
 }

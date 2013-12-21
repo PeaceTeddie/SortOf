@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="SortOf.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="x86" type="win32" />
+  <asmv1:assemblyIdentity name="SortOf.exe" version="1.0.0.6" publicKeyToken="0000000000000000" language="en-US" processorArchitecture="x86" type="win32" />
   <description asmv2:iconFile="favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -43,48 +43,48 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExtManager.dll" size="10752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExtManager.dll" size="9728">
       <assemblyIdentity name="ExtManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>gXAd73ws1PtbZHtA1uWkP3ClC6k=</dsig:DigestValue>
+        <dsig:DigestValue>/5Dzgh9KSkuNCG2Vc6HS5khKZwo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortingEngine.dll" size="6656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortingEngine.dll" size="7680">
       <assemblyIdentity name="SortingEngine" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>QYxyE/PuHi+ca6L2PsxZBJoDbUs=</dsig:DigestValue>
+        <dsig:DigestValue>ktAF6Zhi4dWVLuQBbubWBv8Uw/4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortOf.exe" size="187904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortOf.exe" size="191488">
       <assemblyIdentity name="SortOf" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>k3fbB7ZAVd7C+SF6pLCW4fTi5rA=</dsig:DigestValue>
+        <dsig:DigestValue>eAhnQHTEeGwUyTk/w8t91ImU8g4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ChangeLog.txt" size="474">
+  <file name="ChangeLog.txt" size="569">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>4KugTOFFWlBQtFOEHnu3dCZ22Sk=</dsig:DigestValue>
+      <dsig:DigestValue>QclgFMmhW9I0JTNxsmgqOPKJwCo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="favicon.ico" size="82726">
@@ -96,13 +96,13 @@
       <dsig:DigestValue>r2cISBzY85dHcpj1cx4bvpttl1A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="SortOf.exe.config" size="2051">
+  <file name="SortOf.exe.config" size="2099">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>fztDteGa/9i8KHViIr+6dLFR5Dw=</dsig:DigestValue>
+      <dsig:DigestValue>SGZcYk+0XsDw03v5UqA2Z/asdVA=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

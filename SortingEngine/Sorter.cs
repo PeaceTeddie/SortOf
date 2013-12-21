@@ -2,67 +2,98 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SortingEngine
 {
     public class Sorter
     {
-        bool SortingDone;
         public string CurrentDirectory { get; set; }
+        private string ActiveDirectory { get; set; }
 
         public void Check(string ExtFolder)
         {
-            int FileCount = Directory.GetFiles(CurrentDirectory + "\\" + ExtFolder).Count();
+            ActiveDirectory = CurrentDirectory + ExtFolder;
 
-            if (!SortingDone || FileCount == 0)
-                RemoveFolder(ExtFolder);            
+            int FileCount = Directory.GetFiles(ActiveDirectory).Count();
+
+            if (FileCount == 0)
+                Directory.Delete(ActiveDirectory);
+            else return;            
         }
 
-        public void CreateFolder(string Folder)
+        public void CreateFolder(string ExtFolder)
         {
-            try
-            {
-                Directory.CreateDirectory(CurrentDirectory + "\\" + Folder);
-            }
-            catch (Exception) { }
-        }
+            ActiveDirectory = CurrentDirectory + ExtFolder;
 
-        private void RemoveFolder(string Folder)
-        {
-            try
-            {
-                Directory.Delete(CurrentDirectory + "\\" + Folder);
-            }
-            catch (Exception) { }
+            if (!Directory.Exists(ActiveDirectory))
+                Directory.CreateDirectory(ActiveDirectory);
         }
 
         public void ByExtension(string Extension, string ExtFolder)
         {
+            ActiveDirectory = CurrentDirectory + ExtFolder;
+
             string[] Files = Directory.GetFiles(CurrentDirectory, "*." + Extension, SearchOption.TopDirectoryOnly);
 
             int FileCount = Files.Count();
-            if (FileCount != 0)
+            if (FileCount > 0)
             {
                 foreach (string File in Files)
                 {
                     try
                     {
-                        Directory.Move(Path.GetFullPath(File), CurrentDirectory + "\\" + ExtFolder + "\\" + Path.GetFileName(File));
+                        Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(File));
                     }
-                    catch (Exception)
+                    catch (Exception E)
                     {
-                        string[] Name = File.Split('.');
-                        string NewName = Name[0] + " (" + 1 + ")." + Name[1];
-                        Directory.Move(Path.GetFullPath(File), CurrentDirectory + "\\" + ExtFolder + "\\" + Path.GetFileName(NewName));
+                        if (E.Equals(new IOException()))
+                            return;
+                        else
+                        {
+                            int DupFiles = Directory.GetFiles(ActiveDirectory, Path.GetFileName(File), SearchOption.TopDirectoryOnly).Count();
+                            string[] Name = File.Split('.');
+                            string NewName = Name[0] + " (" + DupFiles++ + ")." + Name[1];
+                            Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(NewName));
+                        }
                     }
                 }
-                SortingDone = true;
             }
-            else
-                SortingDone = false;
+        }
+
+        public void Others(List<string> Excluded, string ExtFolder)
+        {
+            ActiveDirectory = CurrentDirectory + ExtFolder;
+
+            string[] Files = Directory.GetFiles(CurrentDirectory, "*.*", SearchOption.TopDirectoryOnly);
+
+            int FileCount = Files.Count();
+            if (FileCount > 0)
+            {
+                foreach (string File in Files)
+                {
+                    foreach (string S in Excluded)
+                    {
+                        try
+                        {
+                            if (!File.Contains("." + S))
+                                Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(File));
+                            else return;
+                        }
+                        catch (Exception E)
+                        {
+                            if (E.Equals(new IOException())) 
+                                return;
+                            else
+                            {
+                                int DupFiles = Directory.GetFiles(ActiveDirectory, Path.GetFileName(File), SearchOption.TopDirectoryOnly).Count();
+                                string[] Name = File.Split('.');
+                                string NewName = Name[0] + " (" + DupFiles++ + ")." + Name[1];
+                                Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(NewName));
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
-

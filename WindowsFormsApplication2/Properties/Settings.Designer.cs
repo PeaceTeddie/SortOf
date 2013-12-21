@@ -154,5 +154,41 @@ namespace SortOf.Properties {
                 this["OtherBox"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RecentOne {
+            get {
+                return ((string)(this["RecentOne"]));
+            }
+            set {
+                this["RecentOne"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RecentTwo {
+            get {
+                return ((string)(this["RecentTwo"]));
+            }
+            set {
+                this["RecentTwo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RecentThree {
+            get {
+                return ((string)(this["RecentThree"]));
+            }
+            set {
+                this["RecentThree"] = value;
+            }
+        }
     }
 }

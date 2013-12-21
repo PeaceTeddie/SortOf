@@ -57,6 +57,7 @@
             this.DocumentBox = new System.Windows.Forms.CheckBox();
             this.ArchiveBox = new System.Windows.Forms.CheckBox();
             this.CatTree = new System.Windows.Forms.TreeView();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.CatPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -273,11 +274,23 @@
             this.CatTree.Size = new System.Drawing.Size(90, 158);
             this.CatTree.TabIndex = 15;
             // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(140, 177);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(75, 25);
+            this.ResetButton.TabIndex = 16;
+            this.ResetButton.TabStop = false;
+            this.ResetButton.Text = "Default";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // SetDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 212);
+            this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.CatPanel);
             this.Controls.Add(this.GenPanel);
             this.Controls.Add(this.CatTree);
@@ -313,5 +326,6 @@
         private System.Windows.Forms.CheckBox VideoBox;
         private System.Windows.Forms.CheckBox TorrentBox;
         private System.Windows.Forms.CheckBox OtherBox;
+        private System.Windows.Forms.Button ResetButton;
     }
 }

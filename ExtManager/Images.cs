@@ -1,46 +1,37 @@
-﻿using System;
+﻿using SortingEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SortingEngine;
 
 namespace ExtManager
 {
     public class Images
     {
-        Sorter Sorter = new Sorter();
-        UnSorter UnSorter = new UnSorter();
-
-        const string Folder = "Images";
+        private const string ExtFolder = "Images\\";
 
         #region Image Extensions
-        static string[] ImageExtensions =
-            {              
+
+        private static string[] ImageExtensions =
+            {
                 "iso",
                 "img",
                 "nrg"
             };
-        #endregion
 
-        static List<string> Extensions = new List<string>(ImageExtensions);
+        #endregion Image Extensions
 
-        public void Sort(string CurrentDirectory)
+        public static List<string> Extensions = new List<string>(ImageExtensions);
+
+        public void Sort(Sorter Sorter)
         {
-            Sorter.CurrentDirectory = CurrentDirectory;
-            Sorter.CreateFolder(Folder);
+            Sorter.CreateFolder(ExtFolder);
             foreach (string Extension in Extensions)
-                Sorter.ByExtension(Extension, Folder);
-            Sorter.Check(Folder);
+                Sorter.ByExtension(Extension, ExtFolder);
+            Sorter.Check(ExtFolder);
         }
 
-        public void Unsort(string CurrentDirectory)
+        public void Unsort(UnSorter UnSorter)
         {
-            UnSorter.CurrentDirectory = CurrentDirectory;
-            foreach (string Extension in Extensions)
-                UnSorter.ByFolder(Folder);
-            UnSorter.Check(Folder);
+            UnSorter.ByFolder(ExtFolder);
+            UnSorter.Check(ExtFolder);
         }
     }
 }

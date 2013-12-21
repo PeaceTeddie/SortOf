@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using SortOf.Properties;
+using System;
 using System.Windows.Forms;
-using SortOf.Properties;
 
 namespace SortOf
 {
     public partial class SetDialog : Form
     {
-        Settings Settings = new Settings();
+        public Settings Settings
+        {
+            get;
+            set;
+        }
 
-        public SetDialog()
+        public void SetDialog()
         {
             InitializeComponent();
             SettingsCheck();
@@ -35,7 +33,7 @@ namespace SortOf
             VideoBox.Checked = Settings.VideoBox;
         }
 
-        public void SaveSettings()
+        public Settings SaveSettings()
         {
             Settings.ArchiveBox = ArchiveBox.Checked;
             Settings.DocumentBox = DocumentBox.Checked;
@@ -49,6 +47,7 @@ namespace SortOf
             Settings.TorrentBox = TorrentBox.Checked;
             Settings.VideoBox = VideoBox.Checked;
             Settings.Save();
+            return Settings;
         }
 
         private void SetTree_AfterSelect(object sender, TreeViewEventArgs e)
@@ -80,6 +79,21 @@ namespace SortOf
                 CatTree.Enabled = true;
                 CatTree.Visible = true;
             }
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult DefaultAsk = MessageBox.Show(SetDialog.ActiveForm, "Do you really want to reset the settings to default?", "Reset to default settings?", MessageBoxButtons.YesNo);
+            if (DefaultAsk == DialogResult.Yes)
+            {
+                Settings.RecentOne = "";
+                Settings.RecentTwo = "";
+                Settings.RecentThree = "";
+                Settings.Reset();
+                Settings.Save();
+            }
+            else if(DefaultAsk == DialogResult.No)
+                return;
         }
     }
 }

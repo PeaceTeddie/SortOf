@@ -1,23 +1,16 @@
-﻿using System;
+﻿using SortingEngine;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using SortingEngine;
 
 namespace ExtManager
 {
     public class Programs
     {
-        Sorter Sorter = new Sorter();
-        UnSorter UnSorter = new UnSorter();
-
-        const string Folder = "Programs";
+        private const string ExtFolder = "Programs\\";
 
         #region Program Extensions
-        static string[] ProgramExtensions =
-            {               
+
+        private static string[] ProgramExtensions =
+            {
                 "exe",
                 "msi",
                 "bat",
@@ -25,25 +18,23 @@ namespace ExtManager
                 "cmd",
                 "btm"
             };
-        #endregion
 
-        static List<string> Extensions = new List<string>(ProgramExtensions);
+        #endregion Program Extensions
 
-        public void Sort(string CurrentDirectory)
+        public static List<string> Extensions = new List<string>(ProgramExtensions);
+
+        public void Sort(Sorter Sorter)
         {
-            Sorter.CurrentDirectory = CurrentDirectory;
-            Sorter.CreateFolder(Folder);
+            Sorter.CreateFolder(ExtFolder);
             foreach (string Extension in Extensions)
-                Sorter.ByExtension(Extension, Folder);
-            Sorter.Check(Folder);
+                Sorter.ByExtension(Extension, ExtFolder);
+            Sorter.Check(ExtFolder);
         }
 
-        public void Unsort(string CurrentDirectory)
+        public void Unsort(UnSorter UnSorter)
         {
-            UnSorter.CurrentDirectory = CurrentDirectory;
-            foreach (string Extension in Extensions)
-                UnSorter.ByFolder(Folder);
-            UnSorter.Check(Folder);
+            UnSorter.ByFolder(ExtFolder);
+            UnSorter.Check(ExtFolder);
         }
     }
 }
