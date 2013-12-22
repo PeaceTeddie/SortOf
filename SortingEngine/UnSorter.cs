@@ -16,8 +16,9 @@ namespace SortingEngine
             if (Directory.Exists(ActiveDirectory))
             {
                 int FileCount = Directory.GetFiles(ActiveDirectory).Count();
+                int FolderCount = Directory.GetDirectories(ActiveDirectory).Count();
 
-                if (FileCount == 0)
+                if (FileCount == 0 && FolderCount == 0)
                     Directory.Delete(ActiveDirectory);
                 else return;
             }

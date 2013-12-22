@@ -18,8 +18,7 @@ namespace SortOf
         private Music Music = new Music();
         private Pictures Pictures = new Pictures();
         private Programs Programs = new Programs();
-        private SetDialog SetDialog = new SetDialog();
-        private Settings Settings = new Settings();
+        internal Settings Settings = new Settings();
         private Shortcuts Shortcuts = new Shortcuts();
         private Sorter Sorter = new Sorter();
         private Torrents Torrents = new Torrents();
@@ -30,13 +29,14 @@ namespace SortOf
         #endregion Declarations
 
         private string CurrentDirectory;
+        private SetDialog SetDialog;
 
         public Form1()
         {
+            SetDialog = new SetDialog(Settings);
+
             InitializeComponent();
             FillContextMenu();
-
-            SetDialog.Settings = Settings;
         }
 
         private void SaveRecent()
@@ -102,11 +102,13 @@ namespace SortOf
         {
             try
             {
-                if (Directory.Exists((string)e.Data.GetData(DataFormats.FileDrop)))
+                string[] FileDrop = (string[])e.Data.GetData(DataFormats.FileDrop);
+                
+                if (Directory.Exists(FileDrop[0]))
                 {
-                    CurrentDirectory = (string)e.Data.GetData(DataFormats.FileDrop);
+                    CurrentDirectory = FileDrop[0];
                     PathBox.Clear();
-                    PathBox.Paste((string)e.Data.GetData(DataFormats.FileDrop));
+                    PathBox.Paste(FileDrop[0]);
                 }
 
             }
@@ -138,8 +140,11 @@ namespace SortOf
         {
             DialogResult SetResult = SetDialog.ShowDialog();
             if (SetResult == DialogResult.OK)
+            {
                 Settings = SetDialog.SaveSettings();
-            Settings.Reload();
+                Settings.Reload();
+            }
+            else return;
         }
 
         private void SortButton_Click(object sender, EventArgs e)
@@ -155,10 +160,10 @@ namespace SortOf
 
             //Misc.
             this.Cursor = Cursors.WaitCursor;
-            this.ProgBar.BringToFront();
             this.Enabled = false;
 
             SaveRecent();
+            ProgBar.Show();
             ProgBar.PerformStep();
 
             #region Sorting Code
@@ -248,8 +253,12 @@ namespace SortOf
             #endregion Sorting Code
 
             MessageBox.Show("You are Victorious!");
+            ProgBar.Value = 0;
             Settings.Save();
-            Application.Restart();
+            ProgBar.Hide();
+
+            this.Cursor = Cursors.Default;
+            this.Enabled = true;
         }
 
         private void UnsortButton_Click(object sender, EventArgs e)
@@ -265,10 +274,10 @@ namespace SortOf
 
             //Misc.
             this.Cursor = Cursors.WaitCursor;
-            this.ProgBar.BringToFront();
             this.Enabled = false;
 
             SaveRecent();
+            ProgBar.Show();
             ProgBar.PerformStep();
 
             #region Unsorting Code
@@ -338,8 +347,12 @@ namespace SortOf
             #endregion Unsorting Code
 
             MessageBox.Show("You are Unvictorious!");
+            ProgBar.Value = 0;
             Settings.Save();
-            Application.Restart();
+            ProgBar.Hide();
+
+            this.Cursor = Cursors.Default;
+            this.Enabled = true;
         }
     }
 }

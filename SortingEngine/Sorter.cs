@@ -15,8 +15,9 @@ namespace SortingEngine
             ActiveDirectory = CurrentDirectory + ExtFolder;
 
             int FileCount = Directory.GetFiles(ActiveDirectory).Count();
+            int FolderCount = Directory.GetDirectories(ActiveDirectory).Count();
 
-            if (FileCount == 0)
+            if (FileCount == 0 && FolderCount == 0)
                 Directory.Delete(ActiveDirectory);
             else return;            
         }
@@ -64,24 +65,45 @@ namespace SortingEngine
         {
             ActiveDirectory = CurrentDirectory + ExtFolder;
 
-            string[] Files = Directory.GetFiles(CurrentDirectory, "*.*", SearchOption.TopDirectoryOnly);
+            string[] Files = Directory.GetFiles(CurrentDirectory, "*", SearchOption.TopDirectoryOnly);
 
-            int FileCount = Files.Count();
-            if (FileCount > 0)
+            if (Files.Count() > 0)
             {
                 foreach (string File in Files)
                 {
-                    foreach (string S in Excluded)
+                    if (Excluded.Count() > 0)
+                    {
+                        foreach (string S in Excluded)
+                        {
+                            try
+                            {
+                                if (!File.Contains("." + S))
+                                    Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(File));
+                                else return;
+                            }
+                            catch (Exception E)
+                            {
+                                if (E.Equals(new IOException()))
+                                    return;
+                                else
+                                {
+                                    int DupFiles = Directory.GetFiles(ActiveDirectory, Path.GetFileName(File), SearchOption.TopDirectoryOnly).Count();
+                                    string[] Name = File.Split('.');
+                                    string NewName = Name[0] + " (" + DupFiles++ + ")." + Name[1];
+                                    Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(NewName));
+                                }
+                            }
+                        }
+                    }
+                    else 
                     {
                         try
                         {
-                            if (!File.Contains("." + S))
-                                Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(File));
-                            else return;
+                            Directory.Move(Path.GetFullPath(File), ActiveDirectory + Path.GetFileName(File));
                         }
                         catch (Exception E)
                         {
-                            if (E.Equals(new IOException())) 
+                            if (E.Equals(new IOException()))
                                 return;
                             else
                             {

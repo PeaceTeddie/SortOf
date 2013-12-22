@@ -6,15 +6,12 @@ namespace SortOf
 {
     public partial class SetDialog : Form
     {
-        public Settings Settings
-        {
-            get;
-            set;
-        }
+        Settings Settings;
 
-        public void SetDialog()
+        internal SetDialog(Settings settings)
         {
             InitializeComponent();
+            Settings = settings;
             SettingsCheck();
         }
 
@@ -33,7 +30,7 @@ namespace SortOf
             VideoBox.Checked = Settings.VideoBox;
         }
 
-        public Settings SaveSettings()
+        internal Settings SaveSettings()
         {
             Settings.ArchiveBox = ArchiveBox.Checked;
             Settings.DocumentBox = DocumentBox.Checked;
@@ -47,6 +44,7 @@ namespace SortOf
             Settings.TorrentBox = TorrentBox.Checked;
             Settings.VideoBox = VideoBox.Checked;
             Settings.Save();
+            Settings.Reload();
             return Settings;
         }
 
@@ -92,7 +90,7 @@ namespace SortOf
                 Settings.Reset();
                 Settings.Save();
             }
-            else if(DefaultAsk == DialogResult.No)
+            else 
                 return;
         }
     }

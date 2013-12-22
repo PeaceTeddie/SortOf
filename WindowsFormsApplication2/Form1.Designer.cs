@@ -91,6 +91,7 @@
             this.ProgBar.Size = new System.Drawing.Size(615, 50);
             this.ProgBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.ProgBar.TabIndex = 0;
+            this.ProgBar.Visible = false;
             // 
             // UnsortButton
             // 
@@ -140,13 +141,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(634, 182);
+            this.Controls.Add(this.ProgBar);
             this.Controls.Add(this.SetButton);
             this.Controls.Add(this.UnsortButton);
             this.Controls.Add(this.SortButton);
             this.Controls.Add(this.MainLabel);
             this.Controls.Add(this.PathBox);
             this.Controls.Add(this.BrowseButton);
-            this.Controls.Add(this.ProgBar);
             this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
