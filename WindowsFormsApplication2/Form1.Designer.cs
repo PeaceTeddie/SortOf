@@ -1,6 +1,6 @@
 ﻿namespace SortOf
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.BrowseButton = new System.Windows.Forms.Button();
             this.MainLabel = new System.Windows.Forms.Label();
             this.SortButton = new System.Windows.Forms.Button();
@@ -37,8 +37,8 @@
             this.ProgBar = new System.Windows.Forms.ProgressBar();
             this.UnsortButton = new System.Windows.Forms.Button();
             this.PathBox = new System.Windows.Forms.TextBox();
-            this.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SetButton = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // BrowseButton
@@ -58,13 +58,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MainLabel.AutoSize = true;
             this.MainLabel.BackColor = System.Drawing.Color.Transparent;
-            this.MainLabel.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.MainLabel.Location = new System.Drawing.Point(118, 9);
+            this.MainLabel.Location = new System.Drawing.Point(62, 10);
             this.MainLabel.Name = "MainLabel";
-            this.MainLabel.Size = new System.Drawing.Size(415, 52);
+            this.MainLabel.Size = new System.Drawing.Size(517, 62);
             this.MainLabel.TabIndex = 2;
-            this.MainLabel.Text = "Please browse for the folder you want \r\nand pick what catagories you want to sort" +
+            this.MainLabel.Text = "Please browse for the folder you want \r\nand pick what categories you want to sort" +
     " out.";
             this.MainLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -117,12 +117,6 @@
             this.PathBox.TabStop = false;
             this.PathBox.WordWrap = false;
             // 
-            // ContextMenuStrip
-            // 
-            this.ContextMenuStrip.Name = "ContextMenuStrip";
-            this.ContextMenuStrip.Size = new System.Drawing.Size(61, 4);
-            this.ContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextMenuStrip_ItemClicked);
-            // 
             // SetButton
             // 
             this.SetButton.Location = new System.Drawing.Point(600, 10);
@@ -134,6 +128,12 @@
             this.SetButton.UseVisualStyleBackColor = true;
             this.SetButton.Click += new System.EventHandler(this.SetButton_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "ContextMenuStrip";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextMenuStrip_ItemClicked);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -141,6 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(634, 182);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.ProgBar);
             this.Controls.Add(this.SetButton);
             this.Controls.Add(this.UnsortButton);
@@ -169,12 +170,13 @@
         private System.Windows.Forms.TextBox PathBox;
         private System.Windows.Forms.ProgressBar ProgBar;
         private System.Windows.Forms.Button SetButton;
-        private System.Windows.Forms.ContextMenuStrip ContextMenuStrip;
 
         protected override void OnLoad(System.EventArgs e)
         {
             this.Activate();
         }
+
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

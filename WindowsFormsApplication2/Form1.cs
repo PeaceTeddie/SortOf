@@ -1,55 +1,51 @@
-﻿using ExtManager;
-using SortOf.Properties;
+﻿using MiscLib;
 using SortingEngine;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 
 namespace SortOf
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         #region Declarations
+        SetDialog SetDialog;
+        Sorter Sorter = new Sorter();
+        Manager Manager = new Manager();
+        Settings Settings = new Settings();
+        UnSorter UnSorter = new UnSorter();
 
-        private Archives Archives = new Archives();
-        private Documents Documents = new Documents();
-        private Ebooks Ebooks = new Ebooks();
-        private Images Images = new Images();
-        private Music Music = new Music();
-        private Pictures Pictures = new Pictures();
-        private Programs Programs = new Programs();
-        internal Settings Settings = new Settings();
-        private Shortcuts Shortcuts = new Shortcuts();
-        private Sorter Sorter = new Sorter();
-        private Torrents Torrents = new Torrents();
-        private Others Others = new Others();
-        private UnSorter UnSorter = new UnSorter();
-        private Videos Videos = new Videos();
+        public static CatList CatList = new CatList();
 
         #endregion Declarations
 
-        private string CurrentDirectory;
-        private SetDialog SetDialog;
+        string CurrentDirectory;
 
-        public Form1()
+        public MainForm()
         {
-            SetDialog = new SetDialog(Settings);
+            CatList = Manager.InitializeCatList();
 
             InitializeComponent();
             FillContextMenu();
         }
 
-        private void SaveRecent()
+        void UpdateRecent()
         {
             try
             {
                 if (CurrentDirectory == Settings.RecentOne)
-                    return;
+                {
+
+                }
+
                 else if (CurrentDirectory == Settings.RecentTwo)
                 {
                     Settings.RecentTwo = Settings.RecentOne;
                     Settings.RecentOne = CurrentDirectory;
                 }
+
                 else
                 {
                     Settings.RecentThree = Settings.RecentTwo;
@@ -63,7 +59,7 @@ namespace SortOf
             }
         }
 
-        private void FillContextMenu()
+        void FillContextMenu()
         {
             string[] Recent =
             {
@@ -80,17 +76,17 @@ namespace SortOf
                         ContextMenuStrip.Items.Add(s);
                 }
             }
-            catch (Exception) { }
+            catch (Exception E) { MessageBox.Show(E.Message); }
         }
 
-        private void ContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        void ContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            CurrentDirectory = e.ClickedItem.Text;
             PathBox.Clear();
             PathBox.Paste(e.ClickedItem.Text);
+            CurrentDirectory = e.ClickedItem.Text;
         }
 
-        private void SortOf_DragEnter(object sender, DragEventArgs e)
+        void SortOf_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -98,27 +94,24 @@ namespace SortOf
             }
         }
 
-        private void SortOf_DragDrop(object sender, DragEventArgs e)
+        void SortOf_DragDrop(object sender, DragEventArgs e)
         {
             try
             {
                 string[] FileDrop = (string[])e.Data.GetData(DataFormats.FileDrop);
-                
+
                 if (Directory.Exists(FileDrop[0]))
                 {
-                    CurrentDirectory = FileDrop[0];
                     PathBox.Clear();
                     PathBox.Paste(FileDrop[0]);
+                    CurrentDirectory = FileDrop[0];
                 }
 
             }
-            catch (Exception E)
-            {
-                MessageBox.Show(E.Message);
-            }
+            catch (Exception E) { MessageBox.Show(E.Message); }
         }
 
-        private void BrowseButton_Click(object sender, EventArgs e)
+        void BrowseButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -130,28 +123,24 @@ namespace SortOf
                     PathBox.Paste(Browser.SelectedPath);
                 }
             }
-            catch (Exception E)
-            {
-                MessageBox.Show(E.Message);
-            }
+            catch (Exception E) { MessageBox.Show(E.Message); }
         }
 
-        private void SetButton_Click(object sender, EventArgs e)
+        void SetButton_Click(object sender, EventArgs e)
         {
+            SetDialog = new SetDialog();
             DialogResult SetResult = SetDialog.ShowDialog();
-            if (SetResult == DialogResult.OK)
-            {
-                Settings = SetDialog.SaveSettings();
-                Settings.Reload();
-            }
-            else return;
         }
 
-        private void SortButton_Click(object sender, EventArgs e)
+        void SortButton_Click(object sender, EventArgs e)
         {
-            //ReturnCode
+            //Path Check & Return Code
             if (Directory.Exists(PathBox.Text))
-                Sorter.CurrentDirectory = CurrentDirectory + "\\";
+            {
+                CurrentDirectory = PathBox.Text + "\\";
+                Sorter.CurrentDirectory = CurrentDirectory;
+            }
+
             else if (!Directory.Exists(PathBox.Text))
             {
                 MessageBox.Show("Invalid Directory Path.");
@@ -161,94 +150,28 @@ namespace SortOf
             //Misc.
             this.Cursor = Cursors.WaitCursor;
             this.Enabled = false;
+            this.ProgBar.Step = 100 / CatList.Count;
 
-            SaveRecent();
+            UpdateRecent();
             ProgBar.Show();
-            ProgBar.PerformStep();
 
             #region Sorting Code
 
-            //Archive Sort.
-            if (Settings.ArchiveBox == true)
-                Archives.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Archives.Extensions);
+            foreach (Category Cat in CatList)
+            {
+                try
+                {
+                    if (Cat.ShouldSort)
+                        Sorter.Sort(Cat);
 
-            ProgBar.PerformStep();
-
-            //Document Sort.
-            if (Settings.DocumentBox == true)
-                Documents.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Documents.Extensions);
-
-            ProgBar.PerformStep();
-
-            //Ebook Sort.
-            if (Settings.EbookBox == true)
-                Ebooks.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Ebooks.Extensions);
-
-            //Image Sort.
-            if (Settings.ImageBox == true)
-                Images.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Images.Extensions);
-
-            ProgBar.PerformStep();
-
-            //Music Sort.
-            if (Settings.MusicBox == true)
-                Music.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Music.Extensions);
-
-            ProgBar.PerformStep();
-
-            //Picture Sort.
-            if (Settings.PictureBox == true)
-                Pictures.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Pictures.Extensions);
-
-            ProgBar.PerformStep();
-
-            //Program Sort.
-            if (Settings.ProgramBox == true)
-                Programs.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Programs.Extensions);
-
-            ProgBar.PerformStep();
-
-            //Shortcut Sort.
-            if (Settings.ShortcutBox == true)
-                Shortcuts.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Shortcuts.Extensions);
-
-            ProgBar.PerformStep();
-
-            //Torrent Sort.
-            if (Settings.TorrentBox == true)
-                Torrents.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Torrents.Extensions);
-
-            //Video Sort.
-            if (Settings.VideoBox == true)
-                Videos.Sort(Sorter);
-            else if (Settings.ArchiveBox == false)
-                Others.ExcludeExts(Videos.Extensions);
-
-            ProgBar.PerformStep();
-
-            //Other Sort.
-            if (Settings.OtherBox == true)
-                Others.Sort(Sorter);
-
-            ProgBar.PerformStep();
+                    ProgBar.PerformStep();
+                }
+                catch (Exception E)
+                {
+                    MessageBox.Show(E.Message);
+                    return;
+                }
+            }
 
             #endregion Sorting Code
 
@@ -261,11 +184,14 @@ namespace SortOf
             this.Enabled = true;
         }
 
-        private void UnsortButton_Click(object sender, EventArgs e)
+        void UnsortButton_Click(object sender, EventArgs e)
         {
             //ReturnCode
-            if (Directory.Exists(CurrentDirectory))
-                UnSorter.CurrentDirectory = CurrentDirectory + "\\";
+            if (Directory.Exists(PathBox.Text))
+            {
+                CurrentDirectory = PathBox.Text + "\\";
+                UnSorter.CurrentDirectory = CurrentDirectory;
+            }
             else if (!Directory.Exists(CurrentDirectory))
             {
                 MessageBox.Show("Invalid Directory Path.");
@@ -275,74 +201,20 @@ namespace SortOf
             //Misc.
             this.Cursor = Cursors.WaitCursor;
             this.Enabled = false;
+            this.ProgBar.Step = 100 / CatList.Count;
 
-            SaveRecent();
+            UpdateRecent();
             ProgBar.Show();
-            ProgBar.PerformStep();
 
             #region Unsorting Code
 
-            //Archive Unsort.
-            if (Settings.ArchiveBox == true)
-                Archives.Unsort(UnSorter);
+            foreach (Category Cat in CatList)
+            {
+                if (Cat.ShouldSort)
+                    UnSorter.UnSort(Cat);
 
-            ProgBar.PerformStep();
-
-            //Document Unsort.
-            if (Settings.DocumentBox == true)
-                Documents.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
-
-            //Ebook Unsort.
-            if (Settings.EbookBox == true)
-                Ebooks.Unsort(UnSorter);
-
-            //Image Unsort.
-            if (Settings.ImageBox == true)
-                Images.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
-
-            //Music Unsort.
-            if (Settings.MusicBox == true)
-                Music.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
-
-            //Picture Unsort.
-            if (Settings.PictureBox == true)
-                Pictures.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
-
-            //Program Unsort.
-            if (Settings.ProgramBox == true)
-                Programs.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
-
-            //Shortcut Unsort.
-            if (Settings.ShortcutBox == true)
-                Shortcuts.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
-
-            //Torrent Unsort.
-            if (Settings.TorrentBox == true)
-                Torrents.Unsort(UnSorter);
-
-            //Video Unsort.
-            if (Settings.VideoBox == true)
-                Videos.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
-
-            //Other Unsort.
-            if (Settings.OtherBox == true)
-                Others.Unsort(UnSorter);
-
-            ProgBar.PerformStep();
+                ProgBar.PerformStep();
+            }
 
             #endregion Unsorting Code
 
