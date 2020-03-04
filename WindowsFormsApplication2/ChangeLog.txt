@@ -1,5 +1,8 @@
 ﻿ChangeLog.
 
+-March 03, 2020
+	-Started working on settings again and making some adjustments
+
 -August 26, 2013
 	-Added a context menu of 3 most recent directories
 	-Fixed DragDrop bug
