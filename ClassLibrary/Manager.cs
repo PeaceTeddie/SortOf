@@ -28,21 +28,35 @@ namespace MiscLib
             return CL;
         }
 
-        /*public void DeleteCat(Category Cat)
+        public void SaveCurrentCatList(CatList CL)
         {
-            using (XmlTextWriter XWrite = new XmlTextWriter("CatSettings.xml", Encoding.UTF8))
-            {
-                using (XmlTextReader XRead = new XmlTextReader("CatSettings.xml"))
-                    while (XRead.Read())
-                    {
-                        if (XRead.IsStartElement("Category"))
-                        {
-                                  if(Cat.Name == XRead.GetAttribute(0))
-                                      XWrite.
+            if (File.Exists("CatSettings.xml"))
+                File.Delete("CatSettings.xml");
 
-                        }
+            using (XmlTextWriter Xwrite = new XmlTextWriter("CatSettings.xml", Encoding.UTF8))
+            {
+                Xwrite.WriteStartDocument();
+                Xwrite.WriteWhitespace("\n");
+                Xwrite.WriteStartElement("CatSettings");
+                foreach (Category C in CL)
+                {
+                    Xwrite.WriteWhitespace("\n\t");
+                    Xwrite.WriteStartElement("Category");
+                    Xwrite.WriteAttributeString("Name", C.Name);
+                    Xwrite.WriteAttributeString("Active", C.ShouldSort.ToString());
+
+                    foreach (Extension E in C.Extensions)
+                    {
+                        Xwrite.WriteWhitespace("\n\t\t");
+                        Xwrite.WriteElementString("Extension", E.Name);
                     }
+                    Xwrite.WriteWhitespace("\n\t");
+                    Xwrite.WriteEndElement();
+                }
+                Xwrite.WriteWhitespace("\n");
+                Xwrite.WriteEndElement();
+                Xwrite.WriteEndDocument();
             }
-        } */
+        }
     }
 }

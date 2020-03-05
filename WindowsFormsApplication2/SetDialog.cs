@@ -1,7 +1,6 @@
 ﻿using MiscLib;
 using System;
 using System.Linq;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SortOf
@@ -24,8 +23,10 @@ namespace SortOf
 
         public SetDialog()
         {
+            CurrentCat = new CatList();
             DefaultCat = MainForm.CatList;
-            CurrentCat = MainForm.CatList;
+
+            CurrentCat.AddRange(MainForm.CatList);
 
             InitializeComponent(); //Base
             Selected = Page.Gen; //Default Page
@@ -97,24 +98,6 @@ namespace SortOf
             UpdateExtensions();
         }
 
-        void OnPageSelect(object sender, TreeViewEventArgs e)
-        {
-            switch (e.Node.Name)
-            {
-                case "GenNode":
-                    Selected = Page.Gen;
-                    break;
-                case "CatNode":
-                    Selected = Page.Cats;
-                    break;
-                case "ExtNode":
-                    Selected = Page.Exts;
-                    break;
-            }
-
-            UpdatePage(Selected);
-        }
-
         void UpdatePage(Page page)
         {
             switch (page)
@@ -146,15 +129,9 @@ namespace SortOf
             }
         }
 
-        void RevertClick(object sender, EventArgs e)
+        void OKClick(object sender, EventArgs e)
         {
-            DialogResult DefaultAsk = MessageBox.Show(SetDialog.ActiveForm,
-                "Do you really want to revert the settings?",
-                "Revert settings?",
-                MessageBoxButtons.YesNo);
-
-            if (DefaultAsk == DialogResult.Yes)
-                InitializeAll();
+            MainForm.CatList = CurrentCat;
         }
 
         void AddClick(object sender, EventArgs e)
@@ -192,30 +169,64 @@ namespace SortOf
                 case Page.Cats:
                     if (CategoryList.SelectedItem != null)
                     {
-                        string Item = CategoryList.Items[CategoryList.SelectedIndex] as string;
-
-                        for (int i = 0; i < ExtensionList.Nodes.Count; i++)
-                            if (ExtensionList.Nodes[i] != null)
-                                if (ExtensionList.Nodes[i].Text == Item)
-                                {
-                                    ExtensionList.Nodes.Remove(ExtensionList.Nodes[i]);
-                                    break;
-                                }
-
-                        CategoryList.Items.RemoveAt(CategoryList.SelectedIndex);
+                        string Item = CategoryList.SelectedItem as string;
+                        CurrentCat.Remove(CurrentCat.First(x => x.Name == Item));
                     }
                     break;
 
                 case Page.Exts:
                     if (ExtensionList.SelectedNode != null)
+                    {
                         if (ExtensionList.SelectedNode.Level != 0)
                         {
-                            Category Cat = CurrentCat.First(x => x.Name == ExtensionList.SelectedNode.Parent.Text);
-                            if (Cat != null) Cat.Extensions.Remove(Cat.Extensions.Find(x => x.Name == ExtensionList.SelectedNode.Text));
+                            string Item = ExtensionList.SelectedNode.Text;
+                            string Parent = ExtensionList.SelectedNode.Parent.Text;
+                            Category Cat = CurrentCat.First(x => x.Name == Parent);
+                            Extension E = Cat?.Extensions.First(x => x.Name == Item);
+
+                            Cat.Extensions.Remove(E);
                         }
+                        else
+                        {
+                            string Item = ExtensionList.SelectedNode.Text;
+                            Category Cat = CurrentCat.First(x => x.Name == Item);
+
+                            CurrentCat.Remove(Cat);
+                        }
+                    }
+
                     break;
             }
             UpdateAll();
+        }
+
+        void RevertClick(object sender, EventArgs e)
+        {
+            DialogResult DefaultAsk = MessageBox.Show(SetDialog.ActiveForm,
+                "Do you really want to revert the settings?",
+                "Revert settings?",
+                MessageBoxButtons.YesNo);
+
+            if (DefaultAsk == DialogResult.Yes)
+                InitializeAll();
+        }
+
+        void OnPageSelect(object sender, TreeViewEventArgs e)
+        {
+            switch (e.Node.Name)
+            {
+                case "GenNode":
+                    Selected = Page.Gen;
+                    break;
+                case "CatNode":
+                    Selected = Page.Cats;
+                    break;
+                case "ExtNode":
+                    Selected = Page.Exts;
+                    break;
+            }
+
+            UpdatePage(Selected);
         }
 
         void AfterLabelEdit(object sender, NodeLabelEditEventArgs e)

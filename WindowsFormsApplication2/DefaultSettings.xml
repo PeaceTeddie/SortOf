@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CatSettings>
+  <Category Name="Archives" Active="true">
+    <Extension>zip</Extension>
+    <Extension>rar</Extension>
+    <Extension>7z</Extension>
+    <Extension>ace</Extension>
+    <Extension>cab</Extension>
+    <Extension>tar</Extension>
+    <Extension>jar</Extension>
+    <Extension>pak</Extension>
+    <Extension>wad</Extension>
+  </Category>
+  <Category Name="Documents" Active="true">
+    <Extension>doc</Extension>
+    <Extension>docx</Extension>
+    <Extension>pdf</Extension>
+    <Extension>xls</Extension>
+    <Extension>txt</Extension>
+    <Extension>ppt</Extension>
+    <Extension>htm</Extension>
+    <Extension>php</Extension>
+    <Extension>xml</Extension>
+    <Extension>rtf</Extension>
+    <Extension>log</Extension>
+	  <Extension>cs</Extension>	
+  </Category>
+  <Category Name="Ebooks" Active="true">
+    <Extension>mobi</Extension>
+    <Extension>lit</Extension>
+    <Extension>azw</Extension>
+    <Extension>epub</Extension>
+  </Category>
+  <Category Name="Images" Active="true">
+    <Extension>iso</Extension>
+    <Extension>img</Extension>
+    <Extension>nrg</Extension>
+  </Category>
+  <Category Name="Music" Active="true">
+    <Extension>mp3</Extension>
+    <Extension>wma</Extension>
+    <Extension>wav</Extension>
+    <Extension>ogg</Extension>
+    <Extension>mid</Extension>
+    <Extension>flac</Extension>
+    <Extension>acc</Extension>
+  </Category>
+  <Category Name="Pictures" Active="true">
+    <Extension>jpg</Extension>
+    <Extension>jpeg</Extension>
+    <Extension>gif</Extension>
+    <Extension>png</Extension>
+    <Extension>ico</Extension>
+    <Extension>bmp</Extension>
+    <Extension>psd</Extension>
+    <Extension>tif</Extension>
+    <Extension>pcx</Extension>
+    <Extension>tga</Extension>
+    <Extension>dib</Extension>
+  </Category>
+  <Category Name="Programs" Active="true">
+    <Extension>apk</Extension>
+    <Extension>exe</Extension>
+    <Extension>msi</Extension>
+    <Extension>bat</Extension>
+    <Extension>pif</Extension>
+    <Extension>cmd</Extension>
+    <Extension>btm</Extension>
+  </Category>
+  <Category Name="Shortcuts" Active="true">
+    <Extension>lnk</Extension>
+  </Category>
+  <Category Name="Torrents" Active="true">
+    <Extension>torrent</Extension>
+  </Category>
+  <Category Name="Videos" Active="true">
+    <Extension>rm</Extension>
+    <Extension>mp4</Extension>
+    <Extension>mpg</Extension>
+    <Extension>mpeg</Extension>
+    <Extension>flv</Extension>
+    <Extension>3gp</Extension>
+    <Extension>rmvb</Extension>
+    <Extension>avi</Extension>
+    <Extension>wmv</Extension>
+    <Extension>mkv</Extension>
+    <Extension>vob</Extension>
+    <Extension>mov</Extension>
+    <Extension>webm</Extension>
+  </Category>
+</CatSettings>

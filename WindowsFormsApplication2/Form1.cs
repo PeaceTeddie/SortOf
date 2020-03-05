@@ -2,6 +2,7 @@
 using SortingEngine;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
@@ -53,10 +54,7 @@ namespace SortOf
                     Settings.RecentOne = CurrentDirectory;
                 }
             }
-            catch (Exception E)
-            {
-                MessageBox.Show(E.Message);
-            }
+            catch (Exception E) { MessageBox.Show(E.Message); }
         }
 
         void FillContextMenu()
@@ -79,14 +77,14 @@ namespace SortOf
             catch (Exception E) { MessageBox.Show(E.Message); }
         }
 
-        void ContextMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        void ContextClick(object sender, ToolStripItemClickedEventArgs e)
         {
             PathBox.Clear();
             PathBox.Paste(e.ClickedItem.Text);
             CurrentDirectory = e.ClickedItem.Text;
         }
 
-        void SortOf_DragEnter(object sender, DragEventArgs e)
+        void OnDragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
@@ -94,7 +92,7 @@ namespace SortOf
             }
         }
 
-        void SortOf_DragDrop(object sender, DragEventArgs e)
+        void OnDragDrop(object sender, DragEventArgs e)
         {
             try
             {
@@ -111,7 +109,7 @@ namespace SortOf
             catch (Exception E) { MessageBox.Show(E.Message); }
         }
 
-        void BrowseButton_Click(object sender, EventArgs e)
+        void BrowseClick(object sender, EventArgs e)
         {
             try
             {
@@ -126,13 +124,13 @@ namespace SortOf
             catch (Exception E) { MessageBox.Show(E.Message); }
         }
 
-        void SetButton_Click(object sender, EventArgs e)
+        void SettingsClick(object sender, EventArgs e)
         {
             SetDialog = new SetDialog();
             DialogResult SetResult = SetDialog.ShowDialog();
         }
 
-        void SortButton_Click(object sender, EventArgs e)
+        void SortClick(object sender, EventArgs e)
         {
             //Path Check & Return Code
             if (Directory.Exists(PathBox.Text))
@@ -184,7 +182,7 @@ namespace SortOf
             this.Enabled = true;
         }
 
-        void UnsortButton_Click(object sender, EventArgs e)
+        void UnsortClick(object sender, EventArgs e)
         {
             //ReturnCode
             if (Directory.Exists(PathBox.Text))
@@ -225,6 +223,12 @@ namespace SortOf
 
             this.Cursor = Cursors.Default;
             this.Enabled = true;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Manager.SaveCurrentCatList(CatList);
+            base.OnClosing(e);
         }
     }
 }

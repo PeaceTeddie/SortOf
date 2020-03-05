@@ -50,7 +50,7 @@
             this.BrowseButton.TabIndex = 0;
             this.BrowseButton.Text = "Browse";
             this.BrowseButton.UseVisualStyleBackColor = true;
-            this.BrowseButton.Click += new System.EventHandler(this.BrowseButton_Click);
+            this.BrowseButton.Click += new System.EventHandler(this.BrowseClick);
             // 
             // MainLabel
             // 
@@ -77,7 +77,7 @@
             this.SortButton.TabIndex = 17;
             this.SortButton.Text = "~~Sort Out~~";
             this.SortButton.UseVisualStyleBackColor = true;
-            this.SortButton.Click += new System.EventHandler(this.SortButton_Click);
+            this.SortButton.Click += new System.EventHandler(this.SortClick);
             // 
             // Browser
             // 
@@ -102,7 +102,7 @@
             this.UnsortButton.TabStop = false;
             this.UnsortButton.Text = "<";
             this.UnsortButton.UseVisualStyleBackColor = true;
-            this.UnsortButton.Click += new System.EventHandler(this.UnsortButton_Click);
+            this.UnsortButton.Click += new System.EventHandler(this.UnsortClick);
             // 
             // PathBox
             // 
@@ -126,13 +126,13 @@
             this.SetButton.TabStop = false;
             this.SetButton.Text = "S";
             this.SetButton.UseVisualStyleBackColor = true;
-            this.SetButton.Click += new System.EventHandler(this.SetButton_Click);
+            this.SetButton.Click += new System.EventHandler(this.SettingsClick);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "ContextMenuStrip";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextMenuStrip_ItemClicked);
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ContextClick);
             // 
             // Form1
             // 
@@ -153,8 +153,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Sort Of";
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.SortOf_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.SortOf_DragEnter);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.OnDragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.OnDragEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 
