@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cLFWwxzqFdJeaehJqc0lrE4WuacPOfNj+WjrnL6rJ3g=</dsig:DigestValue>
+        <dsig:DigestValue>WmMQY+kk0ZaQj2D0aFY+wKiR+641rOHoP2PhYZIK00s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,19 +62,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BZ5pLtLwW7EsmwIcn2Xv/kk47sVOcDmJCI+cAMDOrBU=</dsig:DigestValue>
+        <dsig:DigestValue>0fJTCe3r7FeS91TlmDMorYXtL0in8ZjQ/7p9gkfl+P0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortOf.exe" size="187904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SortOf.exe" size="188416">
       <assemblyIdentity name="SortOf" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Sx0sJ18/79crYRqmwf6VeFIEMmWMzq+rwPnvQO0A6MM=</dsig:DigestValue>
+        <dsig:DigestValue>6nL8ynFnja+4YzH0P+Gl/eqYC9Z86jfMmd/TFwzIJgY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
