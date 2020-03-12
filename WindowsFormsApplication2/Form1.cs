@@ -44,15 +44,19 @@ namespace SortOf
                 else if (CurrentDirectory == Settings.RecentTwo)
                 {
                     Settings.RecentTwo = Settings.RecentOne;
-                    Settings.RecentOne = CurrentDirectory;
+                    Settings.RecentOne = CurrentDirectory.Trim('\\');
                 }
 
                 else
                 {
                     Settings.RecentThree = Settings.RecentTwo;
                     Settings.RecentTwo = Settings.RecentOne;
-                    Settings.RecentOne = CurrentDirectory;
+                    Settings.RecentOne = CurrentDirectory.Trim('\\');
                 }
+
+                Settings.Save();
+                Settings.Reload();
+                FillContextMenu();
             }
             catch (Exception E) { MessageBox.Show(E.Message); }
         }
@@ -68,6 +72,8 @@ namespace SortOf
 
             try
             {
+                ContextMenuStrip.Items.Clear();
+
                 foreach (string s in Recent)
                 {
                     if (s != null && s != "")

@@ -24,6 +24,7 @@
 		<Extension>rtf</Extension>
 		<Extension>log</Extension>
 		<Extension>cs</Extension>
+		<Extension>New Extension</Extension>
 	</Category>
 	<Category Name="Ebooks" Active="True">
 		<Extension>mobi</Extension>

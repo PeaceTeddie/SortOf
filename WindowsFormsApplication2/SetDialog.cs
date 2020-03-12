@@ -17,6 +17,7 @@ namespace SortOf
         Page Selected;
 
         string PrevName;
+        bool IsCategory;
 
         CatList DefaultCat;
         CatList CurrentCat;
@@ -233,14 +234,19 @@ namespace SortOf
         {
             if (e.CancelEdit) return;
 
-            CurrentCat.Find(x => x.Name == PrevName).Update(e.Label);
+            if (IsCategory)
+                CurrentCat.Find(x => x.Name == PrevName).Update(e.Label);
+
+            else CurrentCat.Find(x => x.Name == e.Node.Parent.Text)
+                    .Extensions.Find(x => x.Name == PrevName).Name = e.Label;
 
             UpdateCategories();
         }
 
         void BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-            PrevName = e.Node.Text;
+            IsCategory = e.Node.Level == 0 ? true : false;
+            PrevName = e.Label is null ? e.Node.Text is null ? "" : e.Node.Text : e.Label;
         }
     }
 }
